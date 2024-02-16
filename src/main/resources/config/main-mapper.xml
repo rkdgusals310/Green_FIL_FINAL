@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.dao.MainContentDao">
+	<insert id="insert_history" parameterType="MainContentDto" >
+		insert into maincontent (main_title, main_content, weather_no) values (#{main_title}, #{main_content}, #{weather_no}) 
+	</insert>
+	<select id="list_history" parameterType="MainContentDto" resultType="MainContentDto">
+		select * from maincontent where weather_no=#{weather_no}
+	</select>
+</mapper>

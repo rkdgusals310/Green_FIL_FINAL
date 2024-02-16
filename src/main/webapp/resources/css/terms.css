@@ -1,0 +1,160 @@
+/* web font */
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansLight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 본문 드래그, 우클릭 금지 */
+* {
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+
+.input__check {
+  color: #1574ce; /* #005d95 */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#header {
+  /* padding-top: 62px;
+  padding-bottom: 20px; */
+  text-align: center;
+  color: #2F95B1;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  background-color: #f5f6f7;
+  font-family: 'GmarketSansMedium';
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wrap {
+  margin: auto;
+}
+
+.wrap .logo {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: 'GmarketSansMedium';
+}
+
+.wrap .contents {
+  font-family: 'GmarketSansLight';
+  padding: 50px;
+  background-color: #ffffff;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#form__wrap {
+  margin: 0 auto;
+  width: 460px;
+  font-size: 14px;
+}
+
+#form__wrap .terms__check__all {
+  display: flex;
+  margin-bottom: 35px;
+}
+
+#form__wrap .terms__check__all label {
+  margin-left: 3px;
+  text-decoration: underline;
+}
+
+.terms__list .terms__box {
+  margin: 20px 0;
+}
+
+.contents label {
+  font-weight: 700;
+}
+
+label.required::after {
+  font-family: 'GmarketSansMedium';
+  margin-left: 4px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #ff8ba4;
+  content: "*";
+}
+
+.terms__list .terms__content {
+  height: 88px;
+  overflow: auto;
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid #dadada;
+  background: #fff;
+  font-size: 12px;
+}
+
+.next-button {
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  border: none;
+  color: white;
+  background-color: #2F95B1;
+  border-radius: 8px;
+  transition-duration: 0.2s;
+  font-family: 'GmarketSansMedium';
+}
+
+.next-button:hover:enabled {
+  background-color: #a3a2a2;
+}
+
+.next-button:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/* check 박스와 해당 텍스트 위치에 마우스가 있을 시 커서 변경 */
+input[type='checkbox'],
+.contents label {
+  cursor: pointer;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width:768px) {
+
+  .wrap {
+    min-width: 280px;
+    padding: 20px;
+  }
+
+  #form__wrap {
+    max-width: 460px;
+    width: auto;
+  }
+
+}

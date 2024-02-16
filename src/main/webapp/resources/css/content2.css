@@ -1,0 +1,282 @@
+select {
+	width: 300px;
+	padding: 5px;
+	border: 1px solid #999;
+	font-family: 'Nanumgothic';
+	border-radius: 3px;
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+.description {
+	text-align: center;
+}
+
+#space img {
+	width: 181px;
+}
+
+/* img{
+    width: 181px;
+} */
+
+.trigger {
+	height: 140px;
+}
+
+/* basic setting */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*:not(.modal):not(.modal_content):not(.signup_content):not(.login_form input) {
+	box-sizing: border-box;
+}
+
+/* web font */
+@font-face {
+	font-family: 'GmarketSansMedium';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GmarketSansLight';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'GmarketSansLight';
+	background-color: white;
+}
+
+/* wrapper 지정 */
+#wrapper {
+	width: 50%;
+	margin: 10vh auto 5vh auto;
+	border-spacing: 0 20px;
+}
+
+
+main {
+	height: 185vh;
+}
+
+#content>div {
+	/* 위 | 오른쪽 | 아래 | 왼쪽 */
+	margin: 0 0 3vh 0;
+}
+
+table {
+	border-collapse: collapse;
+	width: 500px;
+	/*margin: 1rem auto;*/
+	background-color: white;
+}
+
+thead {
+	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 테이블 행 */
+td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+	text-align: center;
+}
+
+th {
+	padding: 8px;
+	text-align: left;
+	text-align: center;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+	color: #000;
+}
+
+/* 테이블 올렸을 때 */
+tbody tr:hover {
+	background-color: #d3d3d3;
+	opacity: 0.9;
+	cursor: pointer;
+}
+
+/* 테이블 비율 */
+th:nth-child(1),
+td:nth-child(1) {
+	width: 15%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+	width: 55%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+	width: 30%;
+}
+
+th,
+td {
+	border-left: none;
+	border-right: none;
+}
+
+#head {
+	color: #7075FF;
+	font-family: 'GmarketSansMedium';
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#post_text {
+	width: 100%;
+	height: 30vh;
+	resize: none;
+	background-color: #efefef;
+	border-radius: 6px;
+	border: 1px solid #dedede;
+	padding: 10px;
+	margin-top: 3px;
+	font-size: 0.9em;
+	color: #3a3a3a;
+}
+
+#submit_button {
+	cursor: pointer;
+	outline: none;
+	width: 100%;
+	height: 35px;
+	border: 1px solid #a8a7a7;
+	color: white;
+	background-color: #7075FF;
+	border-radius: 8px;
+	font-family: 'GmarketSansMedium';
+}
+
+#wrapper input:not(input[type='submit']) {
+	width: 100% !important;
+	background-color: #efefef;
+	border-radius: 6px;
+	border: 1px solid #dedede;
+	padding: 10px;
+	margin-top: 3px;
+	font-size: 0.9em;
+	color: #3a3a3a;
+}
+
+#space a {
+	display: block;
+	/* 영역적용위해 사용 */
+	width: 100%;
+	height: 100%;
+
+	overflow: hidden;
+
+	position: relative;
+	/* absolute의 기본기준은 body로 처리 - 현재 요소로 기준변경 */
+}
+
+#space figure {
+	width: 100%;
+	height: 100%;
+}
+
+#space figcaption {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+
+	position: absolute;
+	/* 이미지와 겹치게 처리 */
+	top: 0;
+	left: 0;
+
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	line-height: 145px;
+
+	opacity: 0;
+	/* 처음엔 안보이고 */
+
+	transition: 0.3s;
+
+	font-family: 'GmarketSansLight';
+}
+
+#space a:hover figcaption,
+#space a:focus figcaption {
+	/* 마우스를 올리면 보이게 처리 */
+	opacity: 1;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width:820px) {
+
+	/* wrapper 지정 */
+	#wrapper {
+		width: 63%;
+		margin: 10vh auto 5vh auto;
+	}
+
+	select {
+		width: 100%;
+		padding: 5px;
+		border: 1px solid #999;
+		font-family: 'Nanumgothic';
+		border-radius: 3px;
+	}
+
+	#space img {
+		width: 110px;
+	}
+
+
+	#space figcaption {
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+
+		position: absolute;
+		/* 이미지와 겹치게 처리 */
+		top: 0;
+		left: 0;
+
+		font-size: 15.5px;
+		color: #fff;
+		text-align: center;
+		line-height: 90px;
+
+		opacity: 0;
+		/* 처음엔 안보이고 */
+
+		transition: 0.3s;
+
+		font-family: 'GmarketSansLight';
+	}
+
+	#check {
+		font-size: 12.1px;
+	}
+
+	.trigger {
+		height: 85px;
+	}
+
+	.description {
+		font-size: 15px;
+	}
+
+
+
+}

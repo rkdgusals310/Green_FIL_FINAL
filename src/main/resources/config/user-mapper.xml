@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.dao.UserDao">
+	<select id="selectAll" resultType="UserDto">
+		select * from user order by user_no desc
+	</select>
+	<select id="loginUser" parameterType="UserDto" resultType="UserDto">
+		select * from user where
+		user_email=#{user_email} and user_pass=#{user_pass}
+	</select>
+
+	<select id="select" parameterType="UserDto" resultType="UserDto">
+		select *
+		from user where user_no=#{user_no}
+	</select>
+	<select id="loginInfo" parameterType="UserDto" resultType="UserDto">
+		select * from user where user_email=#{user_email}
+	</select>
+	
+	<select id="select_admin" resultType="UserDto">
+		select * from user u join grade g using(grade_no) where u.grade_no in (1,2) order by u.user_no desc	
+	</select>
+
+	<resultMap id="VoDtoMap" type="UserVoDto">
+		<result property="user_no" column="user_no"></result>
+		<result property="group_no" column="group_no"></result>
+	</resultMap> 
+
+
+	<select id="contentList" parameterType="UserVoDto" resultMap="VoDtoMap">
+		select * from save_content s join feel_group f on s.feel_no = f.feel_no
+		join main_content m on s.content_no = m.content_no
+		join user u on s.user_no = u.user_no
+		where u.user_no=#{user_no} and m.group_no=#{group_no} ;
+	</select>
+	<select id="findid" parameterType="UserDto" resultType="UserDto">
+		select *
+		from user where user_mobile=#{user_mobile} and
+		user_name=#{user_name}
+	</select>
+	<select id="findpass" parameterType="UserDto"
+		resultType="UserDto">
+		select * from user where user_email=#{user_email} and
+		user_name=#{user_name}
+	</select>
+	<insert id="insert" parameterType="UserDto"> insert into user (user_email,
+		user_pass, user_name, user_mobile, user_birth, user_sex, user_ip)
+		values(#{user_email},#{user_pass},#{user_name},#{user_mobile},#{user_birth},#{user_sex},
+		#{user_ip})
+	</insert>
+	<insert id="insert_api" parameterType="UserDto"> 
+		insert into user (user_email, user_pass, user_name, user_mobile, user_birth, user_sex, user_ip, user_login)
+		values(#{user_email},#{user_pass},#{user_name},#{user_mobile},#{user_birth},#{user_sex}, #{user_ip}, #{user_login})
+		on duplicate key update user_login=values(user_login)
+	</insert>
+	<delete id="delete" parameterType="UserDto">
+		delete from user where
+		user_no=#{user_no}
+	</delete>
+	<update id="update" parameterType="UserDto">
+		update user set user_pass=#{user_pass}, user_mobile=#{user_mobile},
+		user_birth=#{user_birth}, user_sex=#{user_sex} where
+		user_no=#{user_no}
+	</update>
+	<update id="update_adminplus" parameterType="UserDto">
+		update user set
+		grade_no=2 where user_email=#{user_email};
+	</update>
+	<update id="update_admindelete" parameterType="UserDto">
+		update user set
+		grade_no=3 where user_no=#{user_no};
+	</update>
+	<delete id="delete_myconetent" parameterType="UserDto">
+		delete from board where user_no=(select user_no from user where user_email=#{user_email})
+	</delete>
+</mapper>

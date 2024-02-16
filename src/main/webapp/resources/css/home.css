@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+
+#search{
+    margin-bottom: -20px;
+    margin-top: 10px;
+    padding-left: 236px;}
+#search #search_btn{
+    background-color: #00A3FF;
+    height: 44px;
+    width: 70px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;}
+
+.home_body{
+	margin-top: 90px;
+}
+
+#overflow_table{
+	overflow:auto;
+	height: 500px;
+}
+
+#home p{
+	margin-top: 18px;
+	margin-bottom: 18px;
+    font-size: 20px;
+    border-left: 5px solid red;
+    padding-left: 15px;
+}
+.home_notice{
+    background-color: #FFE4E4;
+    width:  1140px;
+    height: 100px;
+}
+/*홈_공지사항*/
+#notice{
+    padding-right: 20px; padding-left: 20px;
+    font-weight: bolder; font-size: 25px;
+    color: red;
+}
+#notice_title{
+    font-size: 37px;
+    line-height: 95px;
+}
+
+/*홈_문의사항*/
+#home_question_back_back{
+    background-color: #D9D9D9;
+}
+#home_question_back{
+    background-color: white;
+}
+#home_question{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#line1{
+    border-bottom: 3px solid red;
+    margin-top: 37px;
+    margin-bottom: 10px;
+}
+/*홈_ 글쓰기 버튼*/
+#btn_w_m{
+    width: 140px;
+    height: 40px;
+    background-color: #777474;
+    text-align: center;
+    board-left: none;
+    margin-left: 135px;
+}
+
+p#btn_w_m{
+	border-left:none;
+	padding-left: 0px;
+}
+#btn_w_m a{
+    font-size: 20px;
+    color: black;
+   
+    line-height: 40px;
+    font-weight: bold;
+}
+
+
+
+#btn_w{
+    width: 140px;
+    height: 40px;
+    background-color: #777474;
+    text-align: center;
+    board-left: none;
+   
+}
+p#btn_w{
+	border-left:none;
+	padding-left: 0px;
+}
+#btn_w a{
+    font-size: 20px;
+    color: black;
+   
+    line-height: 40px;
+    font-weight: bold;
+}
+
+#paging_user{
+	
+	margin-left: 320px;
+}
+
+#macro_no,#m1{
+	overflow : auto;
+	max-width:510px;
+	height: 40px;
+    font-size: 16px;
+ 	/* width:510px !important;  */
+ /*    box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box; */
+    /*  max-width: 510px;
+    min-width: 510px;  */
+}
+
+.write_notice{
+	    margin-top: 90px;
+}

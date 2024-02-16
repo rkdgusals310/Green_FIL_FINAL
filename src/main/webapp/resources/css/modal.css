@@ -1,0 +1,156 @@
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal_content, .signup_content {
+    position: absolute;
+    padding: 1rem 1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 500px;
+}
+
+.modal_content {
+    top: 50%;
+    background-color: white;
+    height: 300px;
+    border-radius: 0.5rem;
+}
+
+.signup_content {
+    top: 95%;
+    background-color: #a8a7a7;
+    height: 25px;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    font-size: 13pt;
+}
+
+.signup {
+    font-family: 'GmarketSansLight';
+    color: white;
+}
+
+.modal_title {
+    font-family: 'GmarketSansMedium';
+    color: #2CA6C7;
+}
+
+.forget_content {
+    margin-top: 15px;
+}
+
+.forget:link, .forget:visited {
+    font-family: 'GmarketSansLight';
+    color: #707070;
+}
+
+.forget:hover, .forget:active {
+    text-decoration: underline;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+.modal_closebtn {
+    position: fixed;
+    width: 3rem;
+    font-size: 30px;
+    left:90%;
+    bottom:85%;
+    line-height: 3rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+
+.login_form input {
+    background-color: #efefef;
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid #dedede;
+    margin-top: 5px;
+    font-size: 12pt;
+    color: #3a3a3a;
+}
+
+.login_form input:focus {
+    border: 1px solid gray;
+}
+
+/* padding 까지 계산 */
+input[type='text'], input[type='password'] {
+    width: 478px;
+    padding: 10px 10px 10px 10px;
+}
+
+input[type='submit'] {
+	width: 500px;
+    font-family: 'GmarketSansLight';
+    padding: 10px 10px 10px 10px;
+    color: white;
+    background-color: #2CA6C7; /* 3C6E71 4F9094 */
+}
+
+#submitBtn:focus {
+    outline: none;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width:768px) {
+
+    .modal_content {
+        width: 80vw;
+    }
+
+    .signup_content {
+        width: 80vw;
+        height:20px;
+    }
+    
+    .modal_closebtn {
+        left:88%;
+    }
+    
+    .forget_content {
+        margin-top: 20px;
+    }
+
+    input[type='text'] {
+        width: 74vw;
+    }
+    
+    input[type='password'] {
+        width: 74vw;
+    }
+    
+    input[type='submit'] {
+        border-radius: 6px;
+        height:40px;
+        width: 78.5vw;
+    }
+
+    .signup {
+        margin-bottom: 5px;
+    }
+        
+}

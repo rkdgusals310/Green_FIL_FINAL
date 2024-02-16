@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/*  base.css  */    
+body{ font-family: 'Noto Sans KR', sans-serif;  
+    background-color:#fff; color:#000;}
+a:link, a:visited{  color:#000;   text-decoration:none; }
+a:hover, a:focus{  color:#ff6900;   text-decoration:none; }
+
+/*  style.css  */  
+.myhidden{  
+  position:absolute;  left:-9999%; 
+  width:1px; height:1px;  overflow:hidden;
+  font-size: 0;   line-height: 0;
+}

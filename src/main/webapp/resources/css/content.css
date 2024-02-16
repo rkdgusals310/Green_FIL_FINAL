@@ -1,0 +1,379 @@
+/* basic setting */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* web font */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main {
+    margin: 10vh 10vw 17vh 10vw;
+    font-family: 'GmarketSansMedium';
+}
+
+body::before{
+    position: absolute;
+    content: "";
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0,0,0,0.4); */
+    background-color: rgb(255 255 255 / 66%);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('../images/main3.jpg'); /* 이미지 경로를 실제 이미지의 경로로 바꿔주세요 */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* 투명도를 원하는 값으로 조정 (0.0에서 1.0 사이의 값) */
+}
+
+ul li {
+    /* color: white; */
+    color: #414141;
+    /* color: transparent; */
+}
+
+.search li:nth-child(2){
+    color: transparent;
+}
+
+.search {
+    display: flex;
+    justify-content: right;
+}
+
+.searchs {
+    margin-top: 5px;
+}
+
+.searchs input[type='text'] {
+    margin-left: 20px;
+    width: 330px;
+}
+
+.search li:first-child {
+    display: flex;
+}
+
+.categorys {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+/* 2023-11-22 (스크린 리더기 안 읽히게) */
+.myhidden{  
+    position: absolute;  
+    left:-9999%;  
+    width:1px; 
+    height:1px;  
+    overflow: hidden;
+    font-size: 0;  
+    line-height: 0;
+}
+
+/* IE 10, 11의 네이티브 화살표 숨기기 */
+select::-ms-expand {
+    display: none;
+}
+
+select {
+    width: 80px;
+    /* 원하는 너비설정 */
+    padding: .8em .5em;
+    /* 여백으로 높이 설정 */
+    font-family: inherit;
+    /* 폰트 상속 */
+    background: url('../images/angle-small-down.png') no-repeat 95% 50%;
+    /* 화살표 모양의 이미지 */
+    border: 1px solid #999;
+    border-radius: 0px;
+    /* iOS 둥근모서리 제거 */
+    -webkit-appearance: none;
+    /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none;
+    
+}
+
+#search-box {
+    /* background-color: #fff; */
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 15pt;
+    font-family: 'GmarketSansLight';
+}
+
+#search-img {
+    position: absolute;
+    top: 12vh;
+    width: 20px;
+}
+
+#line {
+    height: 2px;
+    width: 350px;
+    background-color: #a8a7a7;
+}
+
+#like_btn {
+    cursor: pointer;
+    outline: none;
+    /* width: 100px; */
+    /* height: 35px; */
+    padding: 0.45rem;
+    border: 1px solid #a8a7a7;
+    border-radius: 8px;
+    font-family: 'GmarketSansMedium';
+    font-size: 12pt;
+    color: #333; /* #3a3a3a #333 */
+    background: #F9F2B9;
+}
+
+#back_btn {
+	cursor: pointer;
+    outline: none;
+    /* width: 100px; */
+    /* height: 35px; */
+    padding: 0.45rem;
+    border: 1px solid #a8a7a7;
+    border-radius: 8px;
+    font-family: 'GmarketSansMedium';
+    font-size: 12pt;
+    color: white; /* #3a3a3a #333 */
+    background: #4F9094;
+}
+
+
+#board_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, auto));
+    margin-top: 50px;
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: center;
+}
+
+.item {
+    cursor: pointer;
+    width: 300px;
+    height: 300px; /* 250px */
+    background-color: #a8a7a7;
+    border-radius: 12px;
+    border: 1px solid #a8a7a7;
+}
+
+.post_img img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    object-fit: cover;
+}
+
+.post_img {
+    width: 100%;
+    height: 65%;
+   
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-color: #a8a7a7;
+}
+
+.post_box {
+    padding: 10px;
+    height: 35%;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: #fff;
+}
+
+.post_title {
+	position: relative;
+    font-size: 16pt;
+    margin-bottom: 3px;
+	text-align: center;
+}
+
+.post_desc {
+    font-size: 12pt;
+    margin-bottom: 3px;
+}
+
+.post_like img {
+    position: absolute;
+    width: 2.2rem;
+    margin: -11rem 0rem 0rem 15.5rem;
+}
+
+.item_add {
+	cursor: pointer;
+    width: 300px;
+    height: 300px;
+    
+    background-color: #ddd !important;
+    opacity: 0.7;
+    
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    
+}
+
+.add_icon {
+    width: 50%;
+    height: auto;
+    /*height: 65%;*/
+    background-color: transparent;
+}
+
+.add_icon img {
+    margin: 3.2rem 0rem 2rem 5rem;
+}
+
+.add_box .post_title {
+	font-size: 17pt;
+    font-weight: bold;
+}
+
+
+.add_box {
+    line-height: 2px;
+}
+
+.post_edit img {
+    position: absolute;
+    width: 3.2rem;
+    margin: -11.5rem 0rem 0rem 15.2rem;
+    
+    /*position: absolute;
+    width: 2.2rem;
+    margin: -11rem 0rem 0rem 15.5rem;*/
+}
+
+
+/* 모바일 반응형 */
+@media screen and (max-width:770px) {
+
+    main {
+        margin: 10vh 10vw 15vh 10vw;
+        font-family: 'GmarketSansMedium';
+    }
+
+    .container {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 버튼과 검색창의 flex 제거 */
+    .search {
+        display: block;
+    }
+
+    .searchs {
+        margin-top: 5px;
+    }
+
+    .searchs input[type='text'] {
+        width: 190px;
+    }
+
+    .search li:first-child {
+        display: flex;
+    }
+
+    .categorys {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    /* IE 10, 11의 네이티브 화살표 숨기기 */
+    select::-ms-expand {
+        display: none;
+    }
+
+    select {
+        width: 80px;
+        /* 원하는 너비설정 */
+        padding: .8em .5em;
+        /* 여백으로 높이 설정 */
+        font-family: inherit;
+        /* 폰트 상속 */
+        background: url('../../image/angle-small-down.png') no-repeat 95% 50%;
+        /* 화살표 모양의 이미지 */
+        border: 1px solid #999;
+        border-radius: 0px;
+        /* iOS 둥근모서리 제거 */
+        -webkit-appearance: none;
+        /* 네이티브 외형 감추기 */
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    #search-box {
+        background-color: #fff;
+        border: none;
+        outline: none;
+        font-size: 12pt;
+        font-family: 'GmarketSansLight';
+    }
+
+    #search-img {
+        width: 18px;
+    }
+
+    #line {
+        width: 210px;
+    }
+
+    #like_btn {
+        margin-top: 1.5vh;
+        width: 95px;
+        font-size: 12pt;
+        color: #3a3a3a;
+    }
+    
+    #back_btn {
+        margin-top: 1.5vh;
+        width: 95px;
+        font-size: 12pt;
+        color: #3a3a3a;
+    }
+
+    #board_list {
+        margin-top: 2vh;
+        column-gap: 20px;
+        row-gap: 20px;
+        clear: both;
+    }
+
+    /* 버튼 우측 정렬 */
+    .menu_btn {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        padding: 0px;
+    }
+}

@@ -1,0 +1,238 @@
+/* basic setting */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*:not(.modal):not(.modal_content):not(.signup_content):not(.login_form input) {
+    box-sizing: border-box;
+}
+
+/* web font */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* css 코드 시작 */
+/* footer{
+    text-align: center;
+    margin-top: 70px;
+} */
+
+/* #main-content {
+    margin: 10vh 10vw 15vh 10vw;
+} */
+
+body {
+    font-family: 'GmarketSansLight';
+    margin-top: 8vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 5vh;
+}
+
+li {
+    color: #205A8F;
+}
+
+#text1 {
+    margin: 0;
+    /* margin-bottom: 100px; */
+}
+
+#text2 {
+    margin-left: -100px;
+}
+
+h3 {
+    color: #000000;
+}
+
+h4 {
+    color: #000000;
+}
+
+main {
+    height: 85vh;
+}
+
+#nav-box ul {
+    padding: 0;
+}
+
+#nav-ul {
+    padding: 0;
+}
+
+#circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    top: 15px;
+    /* left: 50px; */
+    /* margin-left: 30px; */
+    border-radius: 50%;
+    background-color: rgb(200, 200, 200);
+    
+    overflow: hidden;
+}
+/*
+#circle {
+    width: 150px;  원하는 크기로 조절 
+    height: 150px;  원하는 크기로 조절 
+    border-radius: 50%;  원 모양으로 만들기 
+    overflow: hidden;  내부 이미지를 원 모양으로 자르기 
+}
+*/
+#circle img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+    
+}
+
+#account {
+    margin-top: 2rem;
+    position: relative;
+    margin-bottom: 2.3rem;
+}
+
+#login {
+    position: relative;
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #c0c0c0;
+}
+
+#schoolNumber {
+    position: relative;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #c0c0c0;
+}
+
+#name {
+    position: relative;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #c0c0c0;
+}
+
+#profile {
+    position: relative;
+    bottom: 100px;
+    left: 120px;
+}
+
+.box {
+    position: relative;
+    margin-left: 730px;
+    margin-top: -50px;
+    border-radius: 7px;
+    background-color: rgb(112, 112, 112);
+    width: 300px;
+    height: auto;
+}
+
+.pull {
+    color: #FFF;
+    padding-left: 10px;
+    padding-top: 4px;
+}
+
+.pull:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -30px;
+    border-right: 30px solid rgb(112, 112, 112);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+#never {
+	display: -webkit-box;
+    margin-top: 3rem;
+}
+
+#logout {
+    position: relative;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #F1C232;
+    color: #FFF;
+    text-decoration: none;
+}
+
+#withdrawal {
+    position: relative;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #4F9094;
+    color: #FFF;
+    text-decoration: underline;
+}
+
+#logout_check {
+    margin-top: 1rem;
+}
+
+#signout_check {
+    margin-top: -0.2rem;
+    margin-left: 2rem;
+}
+
+.myInfo {
+	list-style: none;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width:770px) {
+
+    /* body {
+        width: 20px;
+        margin : 10vh auto 5vh auto;
+    } */
+
+    /* body {
+        margin-top: 5vh;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        margin-bottom: 5vh;
+    } */
+
+    .box {
+        display: none;
+    }
+
+    #circle {
+        width: 180px;
+        height: 180px;
+    }
+
+    #account {
+        width: auto;
+    }
+
+
+}

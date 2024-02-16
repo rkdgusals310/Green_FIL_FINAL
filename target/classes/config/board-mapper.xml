@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.company.dao.BoardDao">
+
+  <select id="search_home" parameterType="BoardVoDto" resultType="BoardVoDto">	<!-- 홈에서 문의사항 검색하기 -->
+  	select board_no,user_name,board_title,board_hit,status_no,board_date,board_content,u.user_no
+		from board b 
+		join user u on u.user_no=b.user_no
+		where board_open=true and grade_no=3
+		<if test='option=="All"'>
+			and (board_content like concat('%',#{keyword},'%')
+			or board_title like concat('%',#{keyword},'%'))
+		</if>
+		
+		<if test='option =="Title"'>
+			AND board_title like concat('%',#{keyword},'%')
+		</if>
+		
+		<if test='option =="Writer"'>
+			AND user_name like concat('%',#{keyword},'%')
+		</if>
+		<!-- order by board_no desc -->
+		<!-- limit #{pstartno},#{onepagelimit} -->
+  </select>
+
+  <select id="readNotice" resultType="BoardDto" > 	<!-- 홈에서 공지사항 읽어오기 -->
+  		select board_title ,b.board_no
+		from board b 
+		join board_root br on b.board_no=br.board_no
+		join user u on u.user_no=b.user_no
+		where current_date() between board_start and board_end
+		and board_open=true and not grade_no=3 
+		order by b.board_no desc 
+		limit 1
+  </select>
+  
+  <select id="readQue" resultType="BoardVoDto" parameterType="java.util.HashMap">	<!-- 홈에서 문의사항 읽어오기 -->
+  		select board_no,user_name,board_title,board_hit,status_no,board_date
+		from board b 
+		join user u on u.user_no=b.user_no
+		where board_open=true and grade_no=3 
+		order by board_no desc
+		limit #{pstartno},#{onepagelimit}
+  </select>
+  
+    <select id="listTotal" resultType="int">
+  		select count(*) from board b 
+		join user u on u.user_no=b.user_no
+		where board_open=true and grade_no=3 
+  	</select>
+  
+  <select id="queDetail" resultType="BoardVoDto" parameterType="BoardVoDto"> 	<!-- 문의사항 디테일 -->
+  		select board_title,board_content,user_name,macro_content,board_no,b.macro_no,b.user_no,board_open,b.status_no
+		from board b
+		join user u on u.user_no=b.user_no
+		join macro m on b.macro_no=m.macro_no
+		where board_no=#{board_no}
+  </select>
+  
+  <update id="hit" parameterType="BoardVoDto">
+  	update board set board_hit=board_hit+1 where board_no=#{board_no}
+  </update>
+  
+  <insert id="queWrite" parameterType="BoardDto">	<!--  문의사항 글쓰기 -->
+  		insert into board (board_title,board_content,board_open,user_no) values(#{board_title},#{board_content},#{board_open},#{user_no}) 
+  </insert>
+  <update id="queUpdate" parameterType="BoardVoDto">	<!-- 문의사항 수정하기 -->
+  		update board set board_title=#{board_title},board_content=#{board_content},board_open=#{board_open}
+		where board_no=#{board_no} and status_no=2 and user_no=#{user_no}
+  </update>
+  <delete id="queDelete_u" parameterType="BoardDto">	<!--  문의사항 삭제하기(사용자) -->
+  		delete from board where board_no=#{board_no} and user_no=#{user_no}
+  </delete>
+  
+  <select id="myQueList" resultType="BoardVoDto" parameterType="BoardDto">	<!-- 내 문의내역 -->
+  		select board_no,user_name,board_title,board_hit,board_open,status_no,board_date
+		from board b 
+		join user u on u.user_no=b.user_no
+		where grade_no=3 and b.user_no=#{user_no}
+		<!-- #{user_no} -->
+		order by b.status_no desc 
+  </select>
+  <select id="noticeList" resultType="BoardDto">	<!-- 공지사항 리스트 -->
+  		select board_no,board_title,board_hit,board_date
+		from board b 
+		join user u on u.user_no=b.user_no
+		where  board_open=true and not grade_no=3 
+		order by b.board_no desc 
+  </select>
+  
+  
+  <!-- 관리자 -->
+  
+  
+  <select id="noticeDetail" parameterType="BoardVoDto" resultType="BoardVoDto">	<!-- 공지사항 디테일 -->
+  		select board_title,board_content,b.board_no,board_start,board_end
+		from board b
+		join board_root br on br.board_no=b.board_no
+		where b.board_no=#{board_no} 
+  </select>	
+  
+<!--   <insert id="noticeWrite_1" parameterType="BoardDto">	 공지사항 글 쓰기
+  		insert into board (board_title,board_content,board_open,user_no)
+		values(#{board_title} ,#{board_content} ,#{board_open},#{user_no} ) 
+		
+  </insert>
+  
+  <insert id="noticeWrite_2" parameterType="BoardRootDto">
+  		insert into board_root (board_start,board_end,board_no)
+		values(#{board_start},#{board_end} ,#{board_no} ) 
+  </insert> -->
+  
+  
+  
+  <insert id="noticeWrite_1" parameterType="BoardVoDto">	<!--  공지사항 글 쓰기 -->
+  		insert into board (board_title,board_content,user_no)
+		values(#{board_title} ,#{board_content},#{user_no} ) 
+		
+  </insert>
+  
+  <select id="noticeWrite_1_select" parameterType="BoardVoDto" resultType="BoardVoDto">
+  		select b.board_no,board_content,board_title
+  		from board b 
+		join user u on u.user_no=b.user_no
+		where not grade_no=3 
+		order by b.board_no desc 
+		limit 1
+  </select>
+  
+  <insert id="noticeWrite_2" parameterType="BoardVoDto">
+  		insert into board_root (board_start,board_end,board_no)
+		values(#{board_start},#{board_end} ,#{board_no} ) 
+  </insert>
+  
+  
+  <!-- 나중에 이상해지면 BoardVoDto로 parameterType 교체 -->
+  <update id="noticeUpdate_1" parameterType="BoardVoDto">	<!-- 공지사항 글 수정 -->
+  		update board set board_title=#{board_title},board_content=#{board_content}
+		where board_no=#{board_no} 
+  </update>
+  
+  <update id="noticeUpdate_2" parameterType="BoardVoDto">		<!-- 공지사항 글 수정 -->
+  		update board_root set board_start=#{board_start},board_end=#{board_end}
+		where board_no=#{board_no} 
+  </update>
+  
+  
+  <delete id="noticeDelete_1" parameterType="BoardVoDto">	<!-- 공지사항 글 삭제 -->
+  		delete from board where board_no=#{board_no} ; 
+  </delete>
+  <delete id="noticeDelete_2" parameterType="BoardVoDto"><!-- 공지사항 글 삭제 -->
+  		delete from board_root where board_no=#{board_no} ; 
+  </delete>
+  
+  <select id="rootQueList" resultType="BoardVoDto">	<!-- 관리자 문의 관리 -->
+  		select board_no,user_name,board_title,board_open,status_no,board_date,macro_no
+		from board b 
+		join user u on u.user_no=b.user_no
+		where grade_no=3 
+		order by b.status_no desc 
+  </select>
+  
+  <update id="reply" parameterType="BoardDto">	<!-- 관리자 문의 관리 답변달기 -->
+  		update board set macro_no=#{macro_no} , status_no=1 where board_no=#{board_no} 
+  </update>
+  
+  <delete id="queDelete_r" parameterType="BoardDto">	<!-- 관리자 사용자가 쓴 글 삭제 -->
+  		delete from board where board_no=#{board_no} 
+  </delete>
+  
+  
+  <!-- 매크로 답변관리 -->
+  <select id="macroList"  resultType="MacroDto">	<!-- 매크로 답변 리스트 -->
+  		select * from macro order by macro_no desc
+  </select>
+  <select id="macroDetail"  resultType="MacroDto" parameterType="MacroDto">	<!-- 매크로 답변 디테일 -->
+  		select macro_no,macro_content from macro where macro_no=#{macro_no}
+  </select>
+  
+  <select id="macroCount"  resultType="int" >	<!-- 매크로 답변 디테일 -->
+  		select count(macro_no) 'count' from macro;
+  </select>
+  
+  
+  
+    <select id="macroAnswer"  resultType="MacroDto" parameterType="MacroDto">	<!-- 매크로 답변 디테일 -->
+  		select macro_no,macro_content from macro
+  </select>
+  
+   <select id="macroSuccess"  resultType="BoardVoDto" parameterType="BoardVoDto">	<!-- 매크로 답변 디테일 -->
+  		select macro_content from  board b join macro m on m.macro_no=b.macro_no where b.macro_no=#{macro_no} and board_no=#{board_no}
+  </select>
+  
+  <insert id="macroWrite"  parameterType="MacroDto">	<!-- 매크로 답변 리스트 추가 -->
+  		insert into macro (macro_content) values(#{macro_content} );
+  </insert>
+  <update id="macroUpdate"  parameterType="MacroDto">	<!--  매크로 답변 리스트 수정 -->
+  		update macro set macro_content=#{macro_content} where macro_no=#{macro_no}   and not macro_no=0
+  </update>
+  <delete id="macroDelete"  parameterType="MacroDto">	<!-- 매크로 답변 리스트 삭제 -->
+  		delete from macro where macro_no=#{macro_no} 
+  </delete>
+  
+</mapper>

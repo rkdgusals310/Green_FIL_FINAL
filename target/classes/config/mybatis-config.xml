@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.company.dto.UserDto" alias="UserDto" />
+		<typeAlias type="com.company.dto.SaveDto" alias="SaveDto" />
+		<typeAlias type="com.company.dto.UserVoDto" alias="UserVoDto" />
+		<typeAlias type="com.company.dto.FeelDto" alias="FeelDto" />
+		<typeAlias type="com.company.dto.MainContentDto" alias="MainContentDto" />
+
+		<typeAlias type="com.khm.dto.BoardDto" alias="BoardDto"/>
+ 		<typeAlias type="com.khm.dto.BoardRootDto" alias="BoardRootDto"/>
+ 		<typeAlias type="com.khm.dto.UserDto" alias="UserDtok"/>
+ 		<typeAlias type="com.khm.dto.MacroDto" alias="MacroDto"/>
+ 		<typeAlias type="com.khm.dto.BoardVoDto" alias="BoardVoDto"/>
+ 		<typeAlias type="com.khm.dto.DiaryDto" alias="DiaryDto"/>
+
+	</typeAliases>
+</configuration>

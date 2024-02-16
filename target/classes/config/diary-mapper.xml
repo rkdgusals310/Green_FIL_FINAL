@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.company.dao.DiaryDao">
+
+	<select id="readDiary" resultType="DiaryDto"><!-- 일기 리스트 읽기 -->
+		select * from diary order by diary_no desc
+	</select>
+	
+	<select id="diaryDeteil" parameterType="DiaryDto" resultType="DiaryDto">
+		select * from diary where diary_no=#{diary_no}
+	</select>
+	
+	<insert id="diaryWrite" parameterType="DiaryDto"><!-- 일기 추가 -->
+		insert into diary(user_no,weather_no,temp,diary_title,diary_content) values(?,?,?,?,?)
+	</insert>
+  
+</mapper>

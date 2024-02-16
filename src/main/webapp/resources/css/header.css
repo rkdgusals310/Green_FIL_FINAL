@@ -1,0 +1,194 @@
+/* 웹 폰트 */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style : normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style : normal;
+}
+
+.myhidden{  
+    position: absolute;  
+    left:-9999%;  
+    width:1px; 
+    height:1px;  
+    overflow: hidden;
+    font-size: 0;  
+    line-height: 0;
+}
+
+/* 메뉴바 설정 */
+ul li {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #414141;
+    min-width: fit-content;
+}
+
+li.active {
+    margin-top: 0.2rem;
+}
+
+a {
+    text-decoration: none !important;
+    color: #414141 !important;
+}
+
+.navbar_logo {
+    height: 50px;
+    line-height: 50px;
+    margin: 0 2em 0.4rem 0; /* top right bottom left */
+    
+    cursor: pointer;
+}
+
+.navbar {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* height: 4rem; */
+    padding-left:10px;
+
+    padding-right:10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #DCDCDC;
+    opacity: 0.73;
+
+    font-family: 'GmarketSansLight';
+    font-weight: bold;
+}
+
+.logo {
+    cursor: pointer;
+    margin: 1rem 0 0 1rem;
+    width: 200px;
+    height: 200px;
+    margin-top: -78px;
+}
+
+.navbar_menu, 
+.navbar_login {
+    display: flex;
+    list-style: none;
+    padding-left:0px;
+}
+
+.navbar_menu {
+    position: relative;
+    margin-inline-end: auto; /* 메뉴를 로고 옆으로 이동 */
+    margin-left: 10px;
+}
+
+.navbar_login {
+    margin-right:20px;
+}
+
+ul.navbar_login img {
+    width: 100%;
+}
+
+/* PC 화면에서는 토글 버튼이 보이지 않도록 설정 */
+.navbar_togglebtn {
+    display: none;
+    margin-top: 15px;
+    position: absolute;
+    right: 20px;
+    font-size: 24px;
+}
+
+.navbar_togglebtn i {
+    font-size: 30px;
+}
+
+/* 메뉴바 선택 시 하이라이트 설정 */
+.navbar_menu li:hover:not(.active) {
+    color: #000000;
+    text-decoration: none;
+    box-shadow: inset 0 -10px 0 #86C5D6;
+}
+
+.navbar_menu li:active:not(.active) {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width:768px) {
+    
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar_menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        /* 메뉴바 위치를 조정하기 위해 바꿨던 포지션을 정적으로 변경 및 여백 초기화 */
+        position: static; 
+        margin-left: 0px;
+    }
+
+    /* PC 화면의 메뉴 목록을 나누던 수직선 제거 */
+    .navbar_menu li:nth-child(2n) {
+        visibility: hidden;
+    }
+
+    /* 모바일 화면의 목록 위치 수정 */
+    .navbar_menu li, .navbar_login li:last-child {
+        margin-right: 20px;
+    }
+
+    .navbar_menu li {
+        width: 100%;
+        text-align : center;
+    }
+
+    .navbar_login {
+        display: none;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar_login li {
+        text-align: center;
+    }
+
+    .navbar_togglebtn {
+        cursor: pointer;
+        display: block;
+        margin-right: 20px;
+    }
+
+    /* toggle 클릭 시 메뉴와 로그인이 보이도록 */
+    .navbar_menu.active,
+    .navbar_login.active {
+        display: flex;
+    }
+
+    .navbar_menu li:hover:not(.active) {
+        /* navbar 메뉴에 마우스 커서를 올릴 시 하이라이트 */
+        max-width: fit-content;
+        box-shadow: inset 0 -10px 0 #fcd121;
+    }
+
+    .navbar_login {
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+
+}

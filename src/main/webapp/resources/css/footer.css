@@ -1,0 +1,55 @@
+html {
+    position: relative;
+    min-height: 100%;
+    margin: 0px;
+}
+
+body {
+    min-height: 100%;
+}
+
+#footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #7095FF;
+    /* #edffe6 */
+	/* #f9ffe6 */
+    height: 55px;
+    width: 100%;
+    align-items: center;
+    clear: both;
+}
+
+#footer img {
+    width: 100px;
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+#footer p {
+    color: white;
+    font-family: 'GmarketSansLight';
+    float: right;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width:770px) {
+
+    #footer img {
+        margin-left: 25px;
+        margin-top:20px;
+        width: 70px;
+    }
+    
+    #footer p {
+        margin-top:35px;
+        margin-right: 25px;
+        font-size: 12px;
+    }
+
+}

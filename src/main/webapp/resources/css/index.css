@@ -1,0 +1,254 @@
+/* basic setting (웹브라우저 기본 여백 제거) */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* web font */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* main */
+/*
+body {
+    background: url("../images/main7.jpg") no-repeat;
+    background-size: cover;
+}
+*/
+
+.wave {
+	width: 100%;
+	height: 100vh;
+	background: url('https://i.postimg.cc/wTqfbvcp/main7.jpg') no-repeat center;
+	background-size: cover;
+}
+
+main {
+    position: relative;
+}
+
+#main {
+    width: 100%;
+    font-family: 'GmarketSansMedium';
+    position: absolute;
+    width: 50%;
+}
+
+#header-content {
+    height: 100vh;
+    clear: both;
+    background-image: url('../../images/main-back.png');
+    background-size: 100% 100%;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+#txt-box {
+    margin-top: 47vh;
+    float: left;
+}
+
+#txt-box span:first-child {
+    font-family: 'GmarketSansMedium';
+    color: #205A8F;
+    font-size: 35px;
+    font-weight: 300;
+}
+
+#txt-box span:last-child {
+    font-family: 'GmarketSansMedium';
+    color: #575757;
+    font-size: 30px;
+}
+
+#header-content img {
+    margin-top: 25vh;
+    width: 450px;
+    float: right;
+}
+
+#main-content {
+    /* 위 | 오른쪽 | 아래 | 왼쪽 */
+    margin: 10vh 10vw 15vh 10vw;
+}
+
+#mypage_logo {
+    margin-top: 5pt;
+}
+
+.count {
+    color: #393939;
+    font-size: 22pt;
+    font-weight: bold;
+}
+
+.content-area {
+    display: inline-block;
+}
+
+.content-area img {
+    width: 300px;
+}
+
+.mc-txt-box {
+    float: right;
+    text-align: left;
+}
+
+.title {
+    color: #393939;
+    font-size: 18pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.content {
+    color: #393939;
+    font-size: 12pt;
+}
+
+.mc-1,
+.mc-2 {
+    margin: 0 0 5vh 0;
+}
+
+.mc-2 {
+    float: right;
+}
+
+.mc-2 .mc-txt-box {
+    float: left;
+}
+
+.mc-2 .count {
+    text-align: right;
+}
+
+.mc-2 .content {
+    text-align: right;
+}
+
+.mc-2 .title {
+    text-align: right;
+}
+
+.mc-3 {
+    clear: both;
+}
+
+#line {
+    display: inline-block;
+    background-color: #205A8F;
+    height: 5px;
+    width: 30%;
+    margin-bottom: 15px;
+    position: absolute;
+    left: 50%;
+    /* 화면 100vh 그 아래로 line을 그리도록 설정 */
+    transform: translate(-50%, 0%);
+}
+
+/* 2023-11-22 (스크린 리더기 안 읽히게) */
+.myhidden{  
+    position: absolute;  
+    left:-9999%;  
+    width:1px; 
+    height:1px;  
+    overflow: hidden;
+    font-size: 0;  
+    line-height: 0;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width:770px) {
+
+    /* 모바일 화면에서는 백그라운드 이미지 제거 */
+    #header-content {
+        background-image: none;
+        text-align: center;
+    }
+
+    #txt-box {
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        top:100px;
+        float:none;
+    }
+
+    #txt-box span:first-child {
+        font-size: 25px;
+    }
+
+    #txt-box span:last-child {
+        font-size: 20px;
+    }
+
+    #header-content img {
+        width: 350px;
+    }
+
+    #img-box {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -90%);
+    }
+
+    /* 텍스트 위치 수정 */
+    .mc-txt-box {
+        float: none;
+    }
+
+    .mc-1,
+    .mc-2 {
+        margin: 0 0 10vh 0;
+    }
+
+    .mc-2 .mc-txt-box {
+        float: none;
+    }
+
+    .mc-3 {
+        clear: both;
+    }
+
+}
+
+@media screen and (max-width:1200px) {
+
+    #header-content {
+        padding-left: 8vw;
+        padding-right: 8vw;
+    }
+
+    #txt-box {
+        margin-top: 45vh;
+    }
+
+    #txt-box span:first-child {
+        font-size: 30px;
+    }
+    
+    #txt-box span:last-child {
+        font-family: 'GmarketSansMedium';
+        color: #575757;
+        font-size: 25px;
+    }
+
+    #header-content img {
+        width: 330px;
+        margin-top: 28vh;
+    }
+
+}
