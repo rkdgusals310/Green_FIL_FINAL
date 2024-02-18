@@ -35,7 +35,7 @@ public class Weather {
 	public Map<String, String> weather() throws IOException {
 		
 		
-		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyMMdd");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyMMdd");
 		Calendar now2 = Calendar.getInstance();
 		String nowTime2 = sdf2.format(now2.getTime());
 		
@@ -79,10 +79,10 @@ public class Weather {
             break;
         case "2000":
         case "2100":
-        case "2200":
         	nowTime = "2000";
             break;
-        case "2300":
+        case "2200":
+        case "2300": 
         case "0000":
         case "0100":
         	nowTime = "2300";
@@ -101,7 +101,7 @@ public class Weather {
 		urlBuilder.append("&" + URLEncoder.encode("dataType", "UTF-8") + "="
 				+ URLEncoder.encode("JSON", "UTF-8")); /* 요청자료형식(XML/JSON) Default: XML */
 		urlBuilder.append("&" + URLEncoder.encode("base_date", "UTF-8") + "="
-				+ URLEncoder.encode(nowTime2, "UTF-8")); /* ‘21년 6월 28일 발표 */
+				+ URLEncoder.encode("20240218", "UTF-8")); /* ‘21년 6월 28일 발표 */
 		urlBuilder.append("&" + URLEncoder.encode("base_time", "UTF-8") + "="
 				+ URLEncoder.encode(nowTime, "UTF-8")); /* 06시 발표(정시단위) */
 		urlBuilder.append(

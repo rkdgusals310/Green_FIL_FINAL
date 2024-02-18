@@ -127,3 +127,109 @@ p#btn_w{
 .write_notice{
 	    margin-top: 90px;
 }
+
+
+
+
+/*calendar 시작*/
+
+.weather_detail img{
+	width: 200px;
+	height: 200px
+}
+
+.weather_detail #tmp{
+	    font-size: 100px;
+	    position: relative;
+	    top: -160px;
+	    left: 190px;
+}
+
+.weather_detail #sky{
+	position: relative;
+    top: -150px;
+    font-size: 30px;
+}
+
+.weather_block{
+	background-color: #c0c0c0;
+	border: 1px solid black;
+	width: 320px;
+    height: 500px;
+    position: absolute;
+    top: 400px;
+    padding-top: 10px;
+    padding-left: 9px;
+	overflow: auto;
+}
+.diary_detail_btn{
+    width: 300px;
+    height: 70px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.diary_my{
+	position: relative;
+	background-color: aliceblue;
+	right: -400px;
+    top: -109px;
+    width: 750px;
+    height: 504px;
+}
+
+.diary_my h3{
+	font-weight: 500;
+    padding-top: 7px;
+    padding-left: 23px;
+}
+
+.diary_title{
+	height: 285px;
+}
+
+.panel{
+	width: 700px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.btn-color{
+	background-color: #006faa;
+	color: white;
+	position: relative;
+    top: -80px; 
+    width: 320px;
+    height: 40px;
+    line-height: 28px;
+}
+#btn_p_color a{
+	color: white;
+	font-size: 20px;
+    font-weight: bold;
+}
+.write{
+    width: 1160px;
+    height: 900px;
+        position: relative;
+    top: -751px;
+    left: 1104px;
+    background-color: aliceblue;
+	
+}
+#diary_content{
+	width: 550px;
+	height: 422px;
+}
+#diary_save{
+	width: 225px;
+    height: 44px;
+}
+#diary_cancel{
+	background-color: red;
+    color: white;
+    width: 225px;
+    height: 44px;
+    margin-top: 10px;
+    padding-bottom: 6px;
+}
