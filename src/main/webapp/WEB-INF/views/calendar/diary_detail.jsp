@@ -10,6 +10,18 @@
 	  	  <p>맑음</p>
 	  	 <p>${weather.get("tmp")}℃</p>
 	  	  </c:if>
+	  	  
+	  	  <c:if test='${weather.get("sky") eq "3"}'>
+	  	  <img alt="구름많음" src="${pageContext.request.contextPath}/resources/image/cloud.png">
+	  	  <p>구름많음</p>
+	  	 <p>${weather.get("tmp")}℃</p>
+	  	  </c:if>
+	  	  
+	  	  <c:if test='${weather.get("sky") eq "4"}'>
+	  	  <img alt="흐림" src="${pageContext.request.contextPath}/resources/image/blur.png">
+	  	  <p>흐림</p>
+	  	 <p>${weather.get("tmp")}℃</p>
+	  	  </c:if>
 	  </div>
 	  
 	  <div class="weather_block"> 
