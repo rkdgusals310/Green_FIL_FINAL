@@ -98,7 +98,7 @@
  
 					
 					<span class="box int_pass_check"> <input type="password"
-						id="newpw_check" name="user_pass" class="field"
+						id="newpw_check" name="user_passcheck" class="field"
 						placeholder="비밀번호는 영어와 숫자를 포함해주세요">
 					</span> <span class="error_next_box"></span>
 				</div>
