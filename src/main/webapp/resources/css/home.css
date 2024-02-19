@@ -204,6 +204,11 @@ p#btn_w{
     height: 40px;
     line-height: 28px;
 }
+.btn-color a{
+	color: white !important;
+    font-size: 30px !important;
+}
+
 #btn_p_color a{
 	color: white;
 	font-size: 20px;
