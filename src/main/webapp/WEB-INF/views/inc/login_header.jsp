@@ -55,7 +55,7 @@
 			<h2 class="myhidden">주메뉴</h2>
 			<div class="navbar_logo">
 				<a href="home.js"><img class="logo"
-					src="${pageContext.request.contextPath}/resources/image/newLogo_2.png" /></a>
+					src="${pageContext.request.contextPath}/resources/image/newLogo_3.png" /></a>
 			</div>
 
 			<ul class="navbar_menu" style="margin-bottom: -5px">

@@ -57,8 +57,8 @@
 		<div
 			style="background-color: white; text-align: center; margin: 20px; padding: 20px; height: 1000px; margin: auto;">
 			<p style="text-align: center">
-				<a href="home.js"> <img src="resources/image/logo2.png"
-					style="vertical-align: middle; margin: auto; padding: 40px; width: 370px;">
+				<a href="home.js"> <img src="resources/image/newLogo_2.png"
+					style="vertical-align: middle; margin: auto; width: 370px;">
 				</a>
 			</p>
 			<form action="login.js" method="post"

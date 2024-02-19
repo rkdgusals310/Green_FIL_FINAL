@@ -25,7 +25,7 @@
             <p><a href="login.js">X</a></p>
         </div>
           <div>
-			<p><img src="resources/image/logo2.png" style="    vertical-align: middle;
+			<p><img src="resources/image/newLogo_2.png" style="    vertical-align: middle;
                 margin: auto;
                 padding: 40px;
     width: 370px;"></p>

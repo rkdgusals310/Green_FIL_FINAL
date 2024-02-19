@@ -46,7 +46,7 @@
 <div>
 	<p style="text-align:center">
 		<a href="home.js">
-		<img src="resources/image/logo2.png"
+		<img src="resources/image/newLogo_2.png"
 			style="vertical-align: middle; margin: auto; padding: 40px; width: 370px;">
 		</a>
 	</p>
