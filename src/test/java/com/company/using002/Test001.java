@@ -18,10 +18,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.company.api.Random;
 import com.company.api.Search_api;
+import com.company.dao.DiaryDao;
 import com.company.dto.MainContentDto;
 import com.company.dto.UserDto;
 import com.company.dto.UserVoDto;
 import com.company.service.MainService;
+import com.khm.dto.DiaryDto;
+import com.khm.service.DiaryService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -34,12 +37,27 @@ public class Test001 {
 	@Autowired
 	MainService service;
 
-	
+	@Autowired DiaryService ser;
+	@Autowired DiaryDao dao;
 	
 	@Test 
 	public void test0() {
 		System.out.println(context);
 	}
+	
+	@Test //@Ignore
+	public void test0111() {
+		
+		DiaryDto dto= new DiaryDto();
+		dto.setDiary_content("11111");
+		dto.setDiary_title("222222");
+		dto.setUser_no(1001);
+		dto.setTemp(30);
+		dto.setWeather_no(3);
+		dao.diaryWrite(dto);
+	}
+	
+
 
 	@Test  @Ignore
 	public void test1() {
@@ -164,7 +182,7 @@ public class Test001 {
 		random.random_api(null);
 	}
 	
-	@Test
+	@Test @Ignore
 	public void test9() throws Exception {
 		StringBuilder urlBuilder = new StringBuilder("http://openapi.seoul.go.kr:8088"); /*URL*/
 		urlBuilder.append("/" +  URLEncoder.encode("51524b696573657534304b4f424c58","UTF-8") ); /*인증키 (sample사용시에는 호출시 제한됩니다.)*/

@@ -265,7 +265,7 @@ public class BoardController {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		PrintWriter out=response.getWriter();
-
+		
 		if(service.macroDelete(dto)>0) {
 			out.print("<script>alert('매크로 삭제 성공'); location.href='macro.hm';</script>");
 		}

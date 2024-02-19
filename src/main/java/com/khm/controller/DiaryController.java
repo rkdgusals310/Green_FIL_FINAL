@@ -50,9 +50,13 @@ public class DiaryController {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		PrintWriter out=response.getWriter();
-		
+		System.out.println(dto.getDiary_title());
+		System.out.println(dto.getDiary_content());
+		System.out.println(dto.getTemp());
+		System.out.println(dto.getUser_no());
+		System.out.println(dto.getWeather_no());
 		if(service.diaryWrite(dto)>0) {
-			out.print("<script>alert('일기 쓰기 성공'); location.href='/diary.khm';</script>");
+			out.print("<script>alert('일기 쓰기 성공'); location.href='diary.khm';</script>");
 		}
 		else {
 			out.print("<script>alert('일기 쓰기 실패');history.go(-1);</script>");

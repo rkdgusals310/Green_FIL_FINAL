@@ -66,53 +66,57 @@
 			</div>
 		</div>
 	</div>
-	<p class="btn btn-color"> <a id="btn_p_color">일기 쓰기</a> </p>
-	
+	<p class="btn btn-color" >
+		<a id="btn_p_color">일기 쓰기</a>
+	</p>
+
 </div>
 
-<div class="write" id="write"> <!-- 글작성 start -->
-	<div style="padding-left: 330px;">
-    <form action="${pageContext.request.contextPath}/write_diary.khm?user_no=${login.user_no}&temp=${weather.get('tmp')}&weather_no=${weather.get('sky')}" method="post">
-      <fieldset>
-        <legend> 일기를 입력해주세요</legend>
+<div class="write" id="write">
+	<!-- 글작성 start -->
+	<div style="padding-left: 25px; padding-top: 60px;">
+		<form
+			action="${pageContext.request.contextPath}/write_diary.khm?user_no=${login.user_no}&temp=${weather.get('tmp')}&weather_no=${weather.get('sky')}"
+			method="post">
+			<fieldset>
+				<legend> 일기를 입력해주세요</legend>
 
-       <%--  <div>
+				<%--  <div>
           <label for="weather_no">오늘의 날씨</label><br>
           <input type="number" id="weather_no" name="weather_no" value='${weather.get("sky")}' >
           
           <label for="temp">오늘의 날씨</label><br>
           <input type="number" id="temp" name="temp" value='${weather.get("tmp")}'>
         </div> --%>
-        <div>
-          <label for="diary_title">제목</label><br>
-          <input type="text" id="diary_title" name="diary_title" >
-        </div>
-        <div>
-          <label for="diary_content">내용 </label><a> 300글자 내외로 입력가능합니다</a> <br>
-          <textarea name="diary_content"  id="diary_content"  cols="60"  rows="10"   class="form-control" ></textarea>
-        </div>
-        
-         <div>
-          <input type="submit" value="일기 저장" id="diary_save"> 
-          <input type="button" value="취소" id="diary_cancel">
-         </div>
-      </fieldset>
-    </form>
-    </div>
-  </div> <!-- 글작성 end -->
+				<div>
+					<label for="diary_title">제목</label><br> <input type="text"
+						id="diary_title" name="diary_title">
+				</div>
+				<div>
+					<label for="diary_content">내용 </label><a> 300글자 내외로 입력가능합니다</a> <br>
+					<textarea name="diary_content" id="diary_content" cols="60"
+						rows="10" class="form-control"></textarea>
+				</div>
+
+				<div>
+					<input type="submit" value="일기 저장" id="diary_save"> 
+					<input type="button" value="취소" id="diary_cancel">
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+<!-- 글작성 end -->
 
 <script>
-	$(document).ready(function(){
-		$("#write").hide();
-	});
     $(function(){
-    	
+    	$("#write").hide();
     	$(".diary_detail_btn").on("click",function(){
     		var diaryNo = $(this).next(".diary_no").val();
             diaryDetail(diaryNo);
     	});
-    	$(".btn_p_color").on("click",function(){$("#write").show();}
-    	$("#diary_cancel").on("click",function(){$("#write").hide();}
+    	$(".btn-color").on("click",function(){$("#write").show();});
+    	$("#diary_cancel").on("click",function(){$("#write").hide();});
     });
     
     function diaryDetail(diaryNo) {

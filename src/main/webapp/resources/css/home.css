@@ -176,6 +176,7 @@ p#btn_w{
     top: -109px;
     width: 750px;
     height: 504px;
+    overflow: auto;
 }
 
 .diary_my h3{
@@ -209,11 +210,11 @@ p#btn_w{
     font-weight: bold;
 }
 .write{
-    width: 1160px;
+  width: 600px;
     height: 900px;
-        position: relative;
-    top: -751px;
-    left: 1104px;
+    position: absolute;
+    top: 207px;
+    left: 756px;
     background-color: aliceblue;
 	
 }
@@ -222,13 +223,13 @@ p#btn_w{
 	height: 422px;
 }
 #diary_save{
-	width: 225px;
+	width: 275px;
     height: 44px;
 }
 #diary_cancel{
 	background-color: red;
     color: white;
-    width: 225px;
+    width: 275px;
     height: 44px;
     margin-top: 10px;
     padding-bottom: 6px;
