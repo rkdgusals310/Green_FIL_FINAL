@@ -22,7 +22,7 @@ public class Kakao_login {
 	public String kakaoToken(String code){
 		
 		String client_id = "d00005ed65e673d8957a8eb42c7007d5";
-		String redirect_uri = "http://localhost:8181/project_FIL/kakao.js&response_type=code&scope=account_email,gender,birthday&prompt=select_account";
+		String redirect_uri = "http://localhost:8080/project_FIL/kakao.js&response_type=code&scope=account_email,gender,birthday&prompt=select_account";
 
 		String tokenUrl = "https://kauth.kakao.com/oauth/token?";
 		tokenUrl += "grant_type=authorization_code" + "&client_id=" + client_id + "&redirect_uri=" + redirect_uri

@@ -29,6 +29,7 @@ import com.company.dto.MainContentDto;
 import com.company.dto.UserDto;
 import com.company.service.MainService;
 import com.company.service.UserService;
+import com.khm.api.Weather;
 
 import lombok.extern.log4j.Log4j;
 
@@ -49,6 +50,8 @@ public class ApiController {
 	SeoulApi seoul;
 	@Autowired
 	Search_api naver_search;
+	@Autowired
+	Weather weather;
 
 	@PostMapping("mail_user.js")
 	@ResponseBody
@@ -194,8 +197,8 @@ public class ApiController {
 			String Content = map.get("Content").toString();
 
 			System.out.println(No);
-			dto.setMain_title(Title);
-			dto.setMain_content(Content);
+			dto.setContent_title(Title);
+			dto.setContent(Content);
 			dto.setWeather_no(1);
 			mainService.insert_history(dto);
 		}
@@ -213,8 +216,8 @@ public class ApiController {
 			String Content = map.get("Content").toString();
 			
 			//System.out.println(No);
-			dto.setMain_title(Title);
-			dto.setMain_content(Content);
+			dto.setContent_title(Title);
+			dto.setContent(Content);
 			dto.setWeather_no(3);
 			mainService.insert_history(dto);
 		}
@@ -230,7 +233,7 @@ public class ApiController {
 		List<MainContentDto> main=mainService.list_history(dto);
 		List<String> list = new ArrayList<>(); 
 		for(int i=0; i<main.size();i++) {
-			String search=main.get(i).getMain_title();
+			String search=main.get(i).getContent_title();
 			list.add(search);
 		}
 		

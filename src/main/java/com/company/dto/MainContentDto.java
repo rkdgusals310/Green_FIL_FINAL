@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MainContentDto {
-	private int main_no;
-	private String main_title;
-	private String main_content;
+	private int content_no;
+	private String content_title;
+	private String content;
 	private int weather_no;
 }

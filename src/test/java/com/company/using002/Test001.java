@@ -23,6 +23,7 @@ import com.company.dto.MainContentDto;
 import com.company.dto.UserDto;
 import com.company.dto.UserVoDto;
 import com.company.service.MainService;
+import com.company.service.UserService;
 import com.khm.dto.DiaryDto;
 import com.khm.service.DiaryService;
 
@@ -36,6 +37,9 @@ public class Test001 {
 
 	@Autowired
 	MainService service;
+	
+	@Autowired
+	UserService uservice;
 
 	@Autowired DiaryService ser;
 	@Autowired DiaryDao dao;
@@ -157,8 +161,8 @@ public class Test001 {
 	@Test @Ignore
 	public void  test5() {
 		MainContentDto dto=new MainContentDto();
-		dto.setMain_content("content");
-		dto.setMain_title("title");
+		//dto.setMain_content("content");
+		//dto.setMain_title("title");
 		dto.setWeather_no(1);
 		service.insert_history(dto);
 	}
@@ -219,6 +223,13 @@ public class Test001 {
 		System.out.println("@@@@@@@@"+ infoResult);
 		
 		
+	}
+	
+	@Test
+	public void test10() {
+		UserDto dto = new UserDto();
+		dto.setUser_email("seung6570@naver.com");
+		uservice.loginInfo(dto);
 	}
 	
 }
