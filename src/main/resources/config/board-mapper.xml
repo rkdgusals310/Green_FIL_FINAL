@@ -5,7 +5,10 @@
 
 
 <mapper namespace="com.company.dao.BoardDao">
-
+	<select id="email_root" parameterType="BoardVoDto" resultType="BoardVoDto">
+		select user_email from board b join user u using(user_no) where board_no=#{board_no} 
+	</select> <!-- 이메일 보내기에서  -->
+	
   <select id="search_home" parameterType="BoardVoDto" resultType="BoardVoDto">	<!-- 홈에서 문의사항 검색하기 -->
   	select board_no,user_name,board_title,board_hit,status_no,board_date,board_content,u.user_no
 		from board b 

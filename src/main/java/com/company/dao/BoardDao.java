@@ -11,6 +11,7 @@ import com.khm.dto.MacroDto;
 @MyDao
 public interface BoardDao {
 	
+	public BoardVoDto email_root(BoardVoDto dto);// 홈에서 공지사항 읽어오기
 	public BoardDto readNotice();// 홈에서 공지사항 읽어오기
 	public List<BoardVoDto> readQue(Map<String, Integer> para);// 홈에서 문의사항 읽어오기
 	public List<BoardVoDto> search_home(BoardVoDto dto);// 홈에서 문의사항 읽어오기

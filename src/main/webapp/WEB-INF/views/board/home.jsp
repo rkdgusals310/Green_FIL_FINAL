@@ -137,7 +137,7 @@
 							<tr>
 								<td  class="text-center">
 
-									<ul class="pagination">
+									<ul class="pagination" style="width: 643px;">
 										<c:if test="${paging.start>=paging.bottomlimit}">
 											<li><a
 												href="${pageContext.request.contextPath}/home.hm?pstartno=${(paging.start-2)*paging.onepagelimit}">이전</a>

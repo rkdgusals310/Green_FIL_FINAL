@@ -101,7 +101,7 @@ public class Weather {
 		urlBuilder.append("&" + URLEncoder.encode("dataType", "UTF-8") + "="
 				+ URLEncoder.encode("JSON", "UTF-8")); /* 요청자료형식(XML/JSON) Default: XML */
 		urlBuilder.append("&" + URLEncoder.encode("base_date", "UTF-8") + "="
-				+ URLEncoder.encode("20240218", "UTF-8")); /* ‘21년 6월 28일 발표 */
+				+ URLEncoder.encode(nowTime2, "UTF-8")); /* ‘21년 6월 28일 발표 */
 		urlBuilder.append("&" + URLEncoder.encode("base_time", "UTF-8") + "="
 				+ URLEncoder.encode(nowTime, "UTF-8")); /* 06시 발표(정시단위) */
 		urlBuilder.append(

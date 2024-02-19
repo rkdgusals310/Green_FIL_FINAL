@@ -29,7 +29,7 @@
 
 				<c:if test="${queDetail.status_no eq 2}">
 					<form
-						action="${pageContext.request.contextPath}/upedate_answer.hm?board_no=${queDetail.board_no}"
+						action="${pageContext.request.contextPath}/upedate_answer.hm?board_no=${queDetail.board_no}&user_email=${email_root.user_email}"
 						method="POST" id="email">
 						<fieldset>
 							<div>

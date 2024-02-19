@@ -224,21 +224,24 @@ public class BoardController {
 		model.addAttribute("queDetail",service.queDetail(dto));
 		model.addAttribute("answer",service.macroAnswer());
 		model.addAttribute("success",service.macroSuccess(dto));
+		model.addAttribute("email_root",service.email_root(dto));
+		
 		
 		return "write_root_detail";
 	}
 	
 	@RequestMapping(value="/upedate_answer.hm", method = RequestMethod.POST)
-	public void macro_answer(BoardDto ddto,HttpServletRequest request,HttpServletResponse response) throws IOException {
+	public void macro_answer(BoardDto ddto,BoardVoDto vodto,HttpServletRequest request,HttpServletResponse response) throws IOException {
 
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
 		PrintWriter out=response.getWriter();
 		String url="home.hm?user_no="+ddto.getUser_no();
+		
 		if(service.reply(ddto)>0) {
 			out.print("<script>alert('매크로 성공'); location.href='"+url+"';</script>");
-			mail.naverMailSend();
+			mail.naverMailSend(vodto);
 		}
 		else {
 			out.print("<script>alert('매크로 실패');history.go(-1);</script>");

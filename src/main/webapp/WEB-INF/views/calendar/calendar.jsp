@@ -21,15 +21,18 @@
 	style="display: flex; justify-content: flex-start; align-items: flex-end;">
 	<div></div>
 	<div id='calendar'></div>
-	<div style="position:relative; top: -380px; left: -180px;">
-		<p>
-			<a class="btn btn-default btn-sm" href="${pageContext.request.contextPath}/diary.khm"> 
-			<span
-				class="glyphicon glyphicon-chevron-right"
-				style="font-size: 90px;"></span>
-			</a>
-		</p>
-	</div>
+	<c:if test="${login.user_no !=null}">
+		<div style="position:relative; top: -380px; left: -180px;">
+			<p>
+				<a class="btn btn-default btn-sm" href="${pageContext.request.contextPath}/diary.khm"> 
+				<span
+					class="glyphicon glyphicon-chevron-right"
+					style="font-size: 90px;"></span>
+				</a>
+			</p>
+		</div>
+	</c:if>
+	
 
 </div>
 <script type='text/javascript'>

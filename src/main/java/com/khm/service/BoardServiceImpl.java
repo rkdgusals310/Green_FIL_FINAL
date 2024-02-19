@@ -189,6 +189,11 @@ public class BoardServiceImpl implements BoardService {
 		return dao.macroSuccess(vodto);
 	}
 
+	@Override
+	public BoardVoDto email_root(BoardVoDto dto) {
+		return dao.email_root(dto);
+	}
+
 
 		
 }

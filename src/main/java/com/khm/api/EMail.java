@@ -19,13 +19,20 @@ import javax.mail.internet.MimeMultipart;
 
 import org.springframework.stereotype.Component;
 
+import com.khm.dto.BoardDto;
+import com.khm.dto.BoardVoDto;
+
 @Component
 public class EMail {
 
-	public static void naverMailSend() throws IOException {
+	public static void naverMailSend(BoardVoDto dto) throws IOException {
 		String HOST = "smtp.naver.com";
 		String USER = "gusals310@naver.com";
 		String PASSWORD = "BMZRT28NVY4M";
+		String to=dto.getUser_email();
+		System.out.println("--------------------------");
+		System.out.println(to);
+		System.out.println("--------------------------");
 		
 		// SMTP 서버 정보를 설정한다.
 		Properties props = new Properties();
@@ -45,7 +52,7 @@ public class EMail {
 		try {
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(USER));
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress("gusals310@naver.com"));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
 			// 메일 제목
 			message.setSubject("[날씨의 일기] 답변완료 안내");

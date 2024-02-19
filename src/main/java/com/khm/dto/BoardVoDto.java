@@ -22,6 +22,7 @@ public class BoardVoDto {
     private String macro_content;
     
     private int user_no;
+    private String user_email;
     private String board_start;
     private String board_end;
     
