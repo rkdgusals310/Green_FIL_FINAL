@@ -1,5 +1,6 @@
 package com.company.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -227,9 +228,13 @@ public class ApiController {
 
 
 	@GetMapping("Search.js")
-	public String Search_Api(Model model) {
+	public String Search_Api(Model model) throws IOException {
 		MainContentDto dto=new MainContentDto();
-		dto.setWeather_no(1);
+		Map<String, String>weathers =weather.weather();
+	      int sky=Integer.parseInt(weathers.get("sky"));
+	      System.out.println("@@@@@ "+ sky);
+	      dto.setWeather_no(sky);
+
 		List<MainContentDto> main=mainService.list_history(dto);
 		List<String> list = new ArrayList<>(); 
 		for(int i=0; i<main.size();i++) {
