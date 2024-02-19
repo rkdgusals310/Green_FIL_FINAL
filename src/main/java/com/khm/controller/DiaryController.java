@@ -27,10 +27,10 @@ public class DiaryController {
 	@Autowired Weather weather;
 	
 	@RequestMapping(value = "/diary.khm", method = RequestMethod.GET)
-	public String diary(Model model) throws IOException
+	public String diary(Model model,DiaryDto dto) throws IOException
 	{
 		
-		model.addAttribute("readDiary",service.readDiary());
+		model.addAttribute("readDiary",service.readDiary(dto));
 		model.addAttribute("weather",weather.weather());
 		return "diary_detail";	
 	}

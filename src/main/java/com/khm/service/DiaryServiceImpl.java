@@ -13,8 +13,8 @@ public class DiaryServiceImpl implements DiaryService {
 
 	@Autowired DiaryDao dao;
 	@Override
-	public List<DiaryDto> readDiary() {
-		return dao.readDiary();
+	public List<DiaryDto> readDiary(DiaryDto dto) {
+		return dao.readDiary(dto);
 	}
 
 	@Override

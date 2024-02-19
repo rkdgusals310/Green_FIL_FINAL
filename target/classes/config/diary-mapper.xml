@@ -6,8 +6,8 @@
 
 <mapper namespace="com.company.dao.DiaryDao">
 
-	<select id="readDiary" resultType="DiaryDto"><!-- 일기 리스트 읽기 -->
-		select * from diary d join weather w using(weather_no) order by diary_no desc
+	<select id="readDiary" resultType="DiaryDto" parameterType="DiaryDto"><!-- 일기 리스트 읽기 -->
+		select * from diary d join weather w using(weather_no) where user_no=#{user_no} order by diary_no desc
 	</select>
 	
 	<select id="diaryDeteil" parameterType="DiaryDto" resultType="DiaryDto">
