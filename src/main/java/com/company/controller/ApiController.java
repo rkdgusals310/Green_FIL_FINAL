@@ -226,7 +226,7 @@ public class ApiController {
 	@GetMapping("Search.js")
 	public String Search_Api(Model model) {
 		MainContentDto dto=new MainContentDto();
-		dto.setWeather_no(4);
+		dto.setWeather_no(1);
 		List<MainContentDto> main=mainService.list_history(dto);
 		List<String> list = new ArrayList<>(); 
 		for(int i=0; i<main.size();i++) {
@@ -237,6 +237,7 @@ public class ApiController {
 		Random random = new Random();
 		Set<String> randomList= random.random_api(list);
 		list=new ArrayList<>();
+		List<String>titleList=new ArrayList<>();
 		Iterator<String> iter = randomList.iterator();
 		while(iter.hasNext()) {
 		String search=iter.next();
@@ -244,15 +245,19 @@ public class ApiController {
 		Map<String, Object> result=naver_search.NaverApi(search);
 		if(result!=null && result.size()>0) {
 			String link=(String) result.get("link");
+			String title=(String) result.get("title");
 			list.add(link);
-			
+			titleList.add(title);
 			}
 		}
 		System.err.println("random@@@ "+randomList);
 		System.err.println(randomList.size());
 		System.err.println("list@@@ "+list);
 		System.err.println("list@@@ "+list.size());
+		
 		model.addAttribute("list", list);
+		model.addAttribute("title", titleList);
+		System.out.println(model);
 		return "content";
 	}
 

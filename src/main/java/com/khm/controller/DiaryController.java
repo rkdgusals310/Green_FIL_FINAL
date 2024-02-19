@@ -56,7 +56,7 @@ public class DiaryController {
 		System.out.println(dto.getUser_no());
 		System.out.println(dto.getWeather_no());
 		if(service.diaryWrite(dto)>0) {
-			out.print("<script>alert('일기 쓰기 성공'); location.href='diary.khm';</script>");
+			out.print("<script>alert('일기 쓰기 성공'); location.href='Search.js';</script>");
 		}
 		else {
 			out.print("<script>alert('일기 쓰기 실패');history.go(-1);</script>");
