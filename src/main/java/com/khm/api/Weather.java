@@ -97,7 +97,7 @@ public class Weather {
 		urlBuilder
 				.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* 페이지번호 */
 		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "="
-				+ URLEncoder.encode("1000", "UTF-8")); /* 한 페이지 결과 수 */
+				+ URLEncoder.encode("20", "UTF-8")); /* 한 페이지 결과 수 */
 		urlBuilder.append("&" + URLEncoder.encode("dataType", "UTF-8") + "="
 				+ URLEncoder.encode("JSON", "UTF-8")); /* 요청자료형식(XML/JSON) Default: XML */
 		urlBuilder.append("&" + URLEncoder.encode("base_date", "UTF-8") + "="
@@ -130,7 +130,7 @@ public class Weather {
 		System.out.println(sb.toString());
 		String data = sb.toString();
 		System.out.println("파싱 시작");
-
+		
 		// Json parser를 만들어 만들어진 문자열 데이터를 객체화
 		JsonParser parser = new JsonParser();
 		JsonObject obj = (JsonObject) parser.parse(data);
@@ -142,8 +142,11 @@ public class Weather {
 		JsonObject parse_items = (JsonObject) parse_body.get("items");
 
 		// items로 부터 itemlist 를 받기
+		try {
+		JsonArray parse_item = (JsonArray) parse_items.get("item");}catch (Exception e) {
+			JsonArray parse_item = (JsonArray) parse_items.get("item");
+		}
 		JsonArray parse_item = (JsonArray) parse_items.get("item");
-
 		JsonObject weather = new JsonObject();
 		String fcstTime;
 		String category;
